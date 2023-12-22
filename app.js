@@ -2,7 +2,6 @@ console.log(window.location.pathname);
 if (window.location.hostname === 'dzen.ru') {
     // жду 5 секунд, чтобы все компоненты прогрузились
 	const timerId = setTimeout(() => {
-		
 		// контейнер , в который помещяют рекламу
 		if (window.location.pathname.indexOf("video")!==-1) {
 			var pleer = document.getElementsByTagName('yaplayertag');
@@ -23,7 +22,11 @@ if (window.location.hostname === 'dzen.ru') {
 				if (rec2) {
 					rec2.remove();
 				}
-				timerId2 = setTimeout(tick, 1000); 
+				rec2 = document.querySelector('aside');
+				if (rec2) {
+					rec2.remove();
+				}
+				timerId2 = setTimeout(tick, 1000);
 			}, 1000);
             console.log('Реклама на Yandex Dzen отключена');
 			return;
@@ -60,7 +63,7 @@ if (window.location.hostname === 'dzen.ru') {
 if (window.location.hostname === 'music.yandex.ru') {
 		let timerId2 = setTimeout(function tick() {
 			
-			timerId2 = setTimeout(tick, 5000); 
+			timerId2 = setTimeout(tick, 5000);
 		}, 5000);
 }
 
@@ -89,7 +92,23 @@ if (window.location.hostname === 'vk.com') {
 			rec2 = document.querySelector('[id="box_layer_wrap"]')
 			rec2 &&	rec2.remove();
 			*/
-			timerId2 = setTimeout(tick, 3000); 
+			timerId2 = setTimeout(tick, 3000);
 		}, 3000);
 }
+if (window.location.hostname === 'my.mail.ru') {
+        let timerId3 = setTimeout(function tick() {
+			var rec3 = document.querySelector('[class="b-video-viral-panel"]')
+			rec3 &&	rec3.remove();
+
+			rec3 = document.querySelector('[data-routing-page="sp-video/pages/item"]')
+			if (rec3) {
+			   if (rec3.nextElementSibling.innerHTML.indexOf('Директ') !== -1) {
+			       rec3.nextElementSibling.remove();
+			   }
+			}
+
+            timerId3 = setTimeout(tick, 3000);
+		}, 3000);
+}
+
 
