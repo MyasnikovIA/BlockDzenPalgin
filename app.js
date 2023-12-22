@@ -112,3 +112,17 @@ if (window.location.hostname === 'my.mail.ru') {
 }
 
 
+if (window.location.hostname === 'rutube.ru') {
+        let timerId3 = setTimeout(function tick() {
+			var rec3 = document.querySelector('[class="app-download-default-banner-module__appDownloadPopup"]');
+			rec3 &&	rec3.remove();
+            rec3 = document.querySelector('[class="app-download-default-banner-module__appDownloadPopupOverlay"]');
+			rec3 &&	rec3.remove();
+            rec3 = document.querySelector('noindex');
+			rec3 &&	rec3.remove();
+
+            timerId3 = setTimeout(tick, 3000);
+		}, 3000);
+}
+
+
