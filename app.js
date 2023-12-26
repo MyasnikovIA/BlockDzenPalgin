@@ -2,37 +2,45 @@ console.log(window.location.pathname);
 if (window.location.hostname === 'dzen.ru') {
     // жду 5 секунд, чтобы все компоненты прогрузились
 	const timerId = setTimeout(() => {
+        console.log('Реклама на Yandex Dzen отключена');
+		let timerId3 = setTimeout(function tick3() {
+			var rec2= document.querySelector('[style="width: 100%;"]')
+			if (rec2) {
+				rec2.remove();
+			}
+			rec2 = document.querySelector('[class="Modal-Content"]');
+			if (rec2) {
+				rec2.remove();
+			}
+			rec2 = document.querySelector('[class="Modal-Overlay"]');
+			if (rec2) {
+				rec2.remove();
+			}
+			rec2 = document.querySelectorAll('aside');
+            if (rec2.length>0) {
+                rec2.forEach(function(el){
+                    el.remove();
+                })
+            }
+			rec2 = document.querySelector('[class="web2app-qr-banner__transition-NN web2app-qr-banner__transitionEnterDone-3P"]');
+			if (rec2) {
+				rec2.remove();
+			}
+			rec2 = document.querySelector('[id="article__left"]');
+			if (rec2) {
+				rec2.remove();
+			}
+			timerId3 = setTimeout(tick3, 2000);
+		}, 2000);
+
 		// контейнер , в который помещяют рекламу
 		if (window.location.pathname.indexOf("video")!==-1) {
 			var pleer = document.getElementsByTagName('yaplayertag');
 			if (pleer.length>0) {
 				pleer[0].childNodes[pleer[0].childNodes.length-1].remove()
 			}
-
-			let timerId2 = setTimeout(function tick() {
-				var rec2= document.querySelector('[style="width: 100%;"]')
-				if (rec2) {
-					rec2.remove();
-				}
-				rec2 = document.querySelector('[class="Modal-Content"]');
-				if (rec2) {
-					rec2.remove();
-				}
-				rec2 = document.querySelector('[class="Modal-Overlay"]');
-				if (rec2) {
-					rec2.remove();
-				}
-				rec2 = document.querySelector('aside');
-				if (rec2) {
-					rec2.remove();
-				}
-				timerId2 = setTimeout(tick, 1000);
-			}, 1000);
-            console.log('Реклама на Yandex Dzen отключена');
 			return;
 		}
-
-
 		var rectxt = document.querySelectorAll('[style="width: 100%;"]')
 		if (rectxt.length>0) {
 			rectxt.forEach(function(el){ 
@@ -126,3 +134,7 @@ if (window.location.hostname === 'rutube.ru') {
 }
 
 
+
+      // document.body.addEventListener('mouseover', (event) => {
+      //     console.log('mouse click',event.target.outerHTML);
+      // });
