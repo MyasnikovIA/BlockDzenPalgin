@@ -107,7 +107,6 @@ if (window.location.hostname === 'my.mail.ru') {
         let timerId3 = setTimeout(function tick() {
 			var rec3 = document.querySelector('[class="b-video-viral-panel"]')
 			rec3 &&	rec3.remove();
-
 			rec3 = document.querySelector('[data-routing-page="sp-video/pages/item"]')
 			if (rec3) {
 			   if (rec3.nextElementSibling.innerHTML.indexOf('Директ') !== -1) {
@@ -115,6 +114,34 @@ if (window.location.hostname === 'my.mail.ru') {
 			   }
 			}
 
+            timerId3 = setTimeout(tick, 3000);
+		}, 3000);
+}
+
+if (window.location.hostname === 'mail.ru') {
+        let timerId3 = setTimeout(function tick() {
+			var rec3 = document.querySelector('.zenad-card-rtb__ad')
+			rec3 &&	rec3.remove();
+
+			rec3 = document.querySelector('[data-routing-page="sp-video/pages/item"]')
+			if (rec3) {
+			   if (rec3.nextElementSibling.innerHTML.indexOf('Директ') !== -1) {
+			       rec3.nextElementSibling.remove();
+			   }
+			}
+            timerId3 = setTimeout(tick, 3000);
+		}, 3000);
+}
+if (window.location.hostname === 'e.mail.ru') {
+        let timerId3 = setTimeout(function tick() {
+			var rec3 = document.querySelector('[class="b-video-viral-panel"]')
+			rec3 &&	rec3.remove();
+			rec3 = document.querySelector('.layout__column_right');
+			rec3 &&	rec3.remove();
+			rec3 = document.querySelector('[class="layout__column layout__column_right layout__column_right-indented"]')
+			rec3 &&	rec3.remove();
+			rec3 = document.querySelector('.letter-list-item-adv_topline');
+			rec3 &&	rec3.remove();
             timerId3 = setTimeout(tick, 3000);
 		}, 3000);
 }
@@ -133,7 +160,7 @@ if (window.location.hostname === 'rutube.ru') {
 		}, 3000);
 }
 
-
+console.log(window.location.hostname)
 
       // document.body.addEventListener('mouseover', (event) => {
       //     console.log('mouse click',event.target.outerHTML);
