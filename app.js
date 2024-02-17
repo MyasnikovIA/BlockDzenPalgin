@@ -30,6 +30,14 @@ if (window.location.hostname === 'dzen.ru') {
 			if (rec2) {
 				rec2.remove();
 			}
+			rec2 = document.querySelector('.zen-ui-video-video-controls__custom-header');
+			if (rec2) {
+				rec2.remove();
+			}
+		    rec2 = document.querySelector('[class="header__header-2i"]');
+			if (rec2) {
+				rec2.remove();
+			}
 			timerId3 = setTimeout(tick3, 2000);
 		}, 2000);
 
