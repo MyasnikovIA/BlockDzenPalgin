@@ -41,12 +41,28 @@ if (window.location.hostname === 'dzen.ru') {
 			timerId3 = setTimeout(tick3, 2000);
 		}, 2000);
 
+        let timerId31 = setTimeout(function tick31() {
+			var pleer = document.querySelector('yaplayertag');
+			if (pleer) {
+			   if(+pleer.childNodes.length === 3) {
+			       pleer.childNodes[2].remove();
+			   }
+            }
+			timerId31 = setTimeout(tick31, 1000);
+		}, 1000);
+
 		// контейнер , в который помещяют рекламу
 		if (window.location.pathname.indexOf("video")!==-1) {
 			var pleer = document.getElementsByTagName('yaplayertag');
 			if (pleer.length>0) {
 				pleer[0].childNodes[pleer[0].childNodes.length-1].remove()
 			}
+			pleer = document.querySelector('yaplayertag');
+			if (pleer) {
+			   if(+pleer.childNodes.length === 3) {
+			       pleer.childNodes[2].remove();
+			   }
+            }
 			return;
 		}
 		var rectxt = document.querySelectorAll('[style="width: 100%;"]')
@@ -72,7 +88,6 @@ if (window.location.hostname === 'dzen.ru') {
 			}
 			timerId2 = setTimeout(tick, 1000); 
 		}, 1000);
-		
 		console.log('Реклама на Yandex Dzen отключена');
 	}, 3000);
 }
